@@ -1,5 +1,4 @@
 # [DEPRECATED] Official Klarna REST PHP (7.3 & 7.4 only) SDK
-[![Packagist Version][packagist-image]](https://packagist.org/packages/klarna/kco_rest)
 [![Build Status](https://travis-ci.org/chumanfu/kco_rest_php.svg?branch=v4.x)](https://travis-ci.org/chumanfu/kco_rest_php)
 [![Coverage Status](https://coveralls.io/repos/github/chumanfu/kco_rest_php/badge.svg?branch=v4)](https://coveralls.io/github/chumanfu/kco_rest_php?branch=v4)
 
