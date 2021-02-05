@@ -168,11 +168,10 @@ class ReportsTest extends ResourceTestCase
         $reports->fetch();
     }
 
-    private function setExpectedException($class, $message='')
+    private function setExpectedException($class, $message = '')
     {
         $this->expectException($class);
-        if ($message !== '')
-        {
+        if ($message !== '') {
             $this->expectExceptionMessage($message);
         }
     }
