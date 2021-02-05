@@ -31,7 +31,7 @@ use Klarna\Rest\Transport\UserAgent;
 /**
  * Unit test cases for the connector class.
  */
-class GuzzleConnectorTest extends TestCase
+class GuzzleConnectorTest extends \Klarna\Rest\Tests\Unit\TestCase
 {
     const USERNAME = '1234';
 
@@ -62,7 +62,7 @@ class GuzzleConnectorTest extends TestCase
     /**
      * Set up the test fixtures.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -123,7 +123,7 @@ class GuzzleConnectorTest extends TestCase
             ->will($this->throwException($exception));
 
         $this->setExpectedException(
-            'RuntimeException',
+            \RuntimeException::class,
             'Something went terribly wrong'
         );
 
@@ -149,7 +149,7 @@ class GuzzleConnectorTest extends TestCase
             ->will($this->throwException($exception));
 
         $this->setExpectedException(
-            'RuntimeException',
+            \RuntimeException::class,
             'Something went terribly wrong'
         );
 
@@ -176,7 +176,7 @@ class GuzzleConnectorTest extends TestCase
             ->will($this->throwException($exception));
 
         $this->setExpectedException(
-            'RuntimeException',
+            \RuntimeException::class,
             'Something went terribly wrong'
         );
 
@@ -202,7 +202,7 @@ class GuzzleConnectorTest extends TestCase
             ->will($this->throwException($exception));
 
         $this->setExpectedException(
-            'RuntimeException',
+            \RuntimeException::class,
             'Something went terribly wrong'
         );
 
@@ -237,7 +237,7 @@ class GuzzleConnectorTest extends TestCase
             ->will($this->throwException($exception));
 
         $this->setExpectedException(
-            'RuntimeException',
+            \RuntimeException::class,
             'Something went terribly wrong'
         );
 
@@ -284,7 +284,7 @@ class GuzzleConnectorTest extends TestCase
 
         $userAgent = $connector->getUserAgent();
         $this->assertInstanceOf('Klarna\Rest\Transport\UserAgent', $userAgent);
-        $this->assertContains('Library/Klarna.kco_rest_php', strval($userAgent));
+        $this->assertStringContainsString('Library/Klarna.kco_rest_php', strval($userAgent));
     }
 
     /**
@@ -298,5 +298,11 @@ class GuzzleConnectorTest extends TestCase
 
         $this->assertInstanceOf('GuzzleHttp\ClientInterface', $client);
         $this->assertSame($this->client, $client);
+    }
+
+    private function setExpectedException($class, $message)
+    {
+        $this->expectException($class);
+        $this->expectExceptionMessage($message);
     }
 }

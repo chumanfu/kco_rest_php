@@ -24,7 +24,7 @@ use Klarna\Rest\Transport\Exception\ConnectorException;
 /**
  * Integration test cases for the checkout order resource.
  */
-class OrderTest extends TestCase
+class OrderTest extends \Klarna\Rest\Tests\Integration\TestCase
 {
     public function testCreateCheckout()
     {

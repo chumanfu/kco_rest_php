@@ -31,7 +31,7 @@ use GuzzleHttp\Psr7\Response;
 /**
  * Unit test cases for the resource class.
  */
-class ResourceTest extends TestCase
+class ResourceTest extends \Klarna\Rest\Tests\Unit\TestCase
 {
     const USERNAME = '1234';
 
@@ -54,7 +54,7 @@ class ResourceTest extends TestCase
     /**
      * Set up the test fixtures.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -79,7 +79,7 @@ class ResourceTest extends TestCase
     /**
      * Set up the test fixtures.
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         parent::tearDown();
 

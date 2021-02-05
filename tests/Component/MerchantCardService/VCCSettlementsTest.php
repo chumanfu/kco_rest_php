@@ -75,10 +75,19 @@ JSON;
      */
     public function testFetch()
     {
-        $this->setExpectedException('Klarna\Exceptions\NotApplicableException');
+        $this->setExpectedException(\Klarna\Exceptions\NotApplicableException::class);
 
         $vccSettlements = new VCCSettlements($this->connector);
         $vccSettlements->fetch();
+    }
+
+    private function setExpectedException($class, $message='')
+    {
+        $this->expectException($class);
+        if ($message !== '')
+        {
+            $this->expectExceptionMessage($message);
+        }
     }
 
     /**

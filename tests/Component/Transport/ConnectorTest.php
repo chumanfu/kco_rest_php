@@ -30,7 +30,7 @@ use Psr\Http\Message\RequestInterface;
 /**
  * Component test cases for the connector class.
  */
-class ConnectorTest extends TestCase
+class ConnectorTest extends \Klarna\Rest\Tests\Component\TestCase
 {
     /**
      * Make sure the request is created properly.

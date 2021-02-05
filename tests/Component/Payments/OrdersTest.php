@@ -136,9 +136,19 @@ JSON;
      */
     public function testFetch()
     {
-        $this->setExpectedException('Klarna\Exceptions\NotApplicableException');
+        $this->setExpectedException(\Klarna\Exceptions\NotApplicableException::class);
 
         $reports = new Orders($this->connector, 'test');
         $reports->fetch();
     }
+
+    private function setExpectedException($class, $message='')
+    {
+        $this->expectException($class);
+        if ($message !== '')
+        {
+            $this->expectExceptionMessage($message);
+        }
+    }
+    
 }

@@ -101,10 +101,8 @@ class OrderTest extends TestCase
 
         $order = new Order($this->connector);
 
-        $this->setExpectedException(
-            'RuntimeException',
-            'Unexpected response status code: 204'
-        );
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Unexpected response status code: 204');
 
         $order->create(['data' => 'goes here']);
     }
@@ -130,10 +128,8 @@ class OrderTest extends TestCase
 
         $order = new Order($this->connector);
 
-        $this->setExpectedException(
-            'RuntimeException',
-            'Response is missing a Content-Type header'
-        );
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Response is missing a Content-Type header');
 
         $order->create(['data' => 'goes here']);
     }
@@ -163,10 +159,8 @@ class OrderTest extends TestCase
 
         $order = new Order($this->connector);
 
-        $this->setExpectedException(
-            'RuntimeException',
-            'Response is missing a Location header'
-        );
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Response is missing a Location header');
 
         $order->create(['data' => 'goes here']);
     }
@@ -234,10 +228,9 @@ class OrderTest extends TestCase
 
         $order = new Order($this->connector);
 
-        $this->setExpectedException(
-            'RuntimeException',
-            'Unexpected response status code: 204'
-        );
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Unexpected response status code: 204');
+
 
         $order->update(['data' => 'goes here']);
     }
@@ -264,10 +257,8 @@ class OrderTest extends TestCase
 
         $order = new Order($this->connector);
 
-        $this->setExpectedException(
-            'RuntimeException',
-            'Unexpected Content-Type header received: text/plain'
-        );
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Unexpected Content-Type header received: text/plain');
 
         $order->update(['data' => 'goes here']);
     }
@@ -336,10 +327,8 @@ class OrderTest extends TestCase
         $order = new Order($this->connector, '12345');
         $order['data'] = 'is overwritten';
 
-        $this->setExpectedException(
-            'RuntimeException',
-            'Unexpected response status code: 204'
-        );
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Unexpected response status code: 204');
 
         $order->fetch();
     }
@@ -371,10 +360,8 @@ class OrderTest extends TestCase
         $order = new Order($this->connector, '12345');
         $order['data'] = 'is overwritten';
 
-        $this->setExpectedException(
-            'RuntimeException',
-            'Unexpected Content-Type header received: text/plain'
-        );
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Unexpected Content-Type header received: text/plain');
 
         $order->fetch();
     }

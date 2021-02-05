@@ -26,7 +26,7 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * Unit test cases for the ResponseValidator class.
  */
-class ResponseValidatorTest extends \PHPUnit_Framework_TestCase
+class ResponseValidatorTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var ResponseInterface
@@ -41,7 +41,7 @@ class ResponseValidatorTest extends \PHPUnit_Framework_TestCase
     /**
      * Set up the test fixtures
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->response = $this->getMockBuilder(ApiResponse::class)
             ->getMock();
@@ -96,7 +96,7 @@ class ResponseValidatorTest extends \PHPUnit_Framework_TestCase
     public function testGetLocationException()
     {
         $this->setExpectedException(
-            'RuntimeException',
+            \RuntimeException::class,
             'Response is missing a Location header'
         );
 
@@ -147,7 +147,7 @@ class ResponseValidatorTest extends \PHPUnit_Framework_TestCase
     public function testContentTypeMissingException()
     {
         $this->setExpectedException(
-            'RuntimeException',
+            \RuntimeException::class,
             'Response is missing a Content-Type header'
         );
 
@@ -167,7 +167,7 @@ class ResponseValidatorTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue(['text/plain']));
 
         $this->setExpectedException(
-            'RuntimeException',
+            \RuntimeException::class,
             'Unexpected Content-Type header received: text/plain'
         );
 
@@ -217,7 +217,7 @@ class ResponseValidatorTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue('201'));
 
         $this->setExpectedException(
-            'RuntimeException',
+            \RuntimeException::class,
             'Unexpected response status code: 201'
         );
 
@@ -236,10 +236,16 @@ class ResponseValidatorTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue('200'));
 
         $this->setExpectedException(
-            'RuntimeException',
+            \RuntimeException::class,
             'Unexpected response status code: 200'
         );
 
         $this->validator->status(['201', '204']);
+    }
+
+    private function setExpectedException($class, $message)
+    {
+        $this->expectException($class);
+        $this->expectExceptionMessage($message);
     }
 }
