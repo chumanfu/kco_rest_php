@@ -1,6 +1,6 @@
 # [DEPRECATED] Official Klarna REST PHP SDK
 [![Packagist Version][packagist-image]](https://packagist.org/packages/klarna/kco_rest)
-[![Build Status][travis-image]](https://travis-ci.org/chumanfu/kco_rest_php)
+[![Build Status](https://travis-ci.org/chumanfu/kco_rest_php.svg?branch=v4.x)](https://travis-ci.org/chumanfu/kco_rest_php)
 [![Coverage Status](https://coveralls.io/repos/github/chumanfu/kco_rest_php/badge.svg?branch=v4)](https://coveralls.io/github/chumanfu/kco_rest_php?branch=v4)
 
 ## SDK Deprecation Warning and Sunsetting
