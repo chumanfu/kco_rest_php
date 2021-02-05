@@ -29,7 +29,7 @@ Shop at your favorite stores today and experience the freedom to pay later with 
 SDK covers all of Klarna API: https://developers.klarna.com/api/
 
 ### Prerequisites
-* PHP 5.5 or above
+* PHP 7.3 or above
 * [API credentials](#api-credentials)
 * [Composer](https://getcomposer.org/) (optional)
 
